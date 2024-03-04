@@ -26,7 +26,7 @@ export class SidebarComponent implements OnInit {
       },
 
       {
-        label: 'Criptomoedas salvas',
+        label: 'Lista de criptomoedas',
         icon: 'pi pi-bitcoin',
         routerLink: 'listar-criptomoedas',
         command: () => this.toogleSidebar(),

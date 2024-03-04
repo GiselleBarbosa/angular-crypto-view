@@ -1,7 +1,5 @@
 <div class="flex justify-content-between align-items-center mb-3">
   <h4>Adicionar criptomoedas</h4>
-
-  <!--  <i class="pi pi-sign-out cursor-pointer text-2xl" routerLink="/"></i> -->
 </div>
 
 <form [formGroup]="form" (ngSubmit)="saveData()">
@@ -50,7 +48,12 @@
         severity="secondary"
       ></p-button>
 
-      <p-button label="Salvar" [raised]="true" severity="secondary"></p-button>
+      <p-button
+        type="submit"
+        label="Salvar"
+        [raised]="true"
+        severity="secondary"
+      ></p-button>
     </div>
   </div>
 </form>
