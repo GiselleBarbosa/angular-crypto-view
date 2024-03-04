@@ -1,0 +1,48 @@
+<div class="flex justify-content-between align-items-center mb-3">
+  <h3>Edição de funcionário</h3>
+
+  <i class="pi pi-sign-out cursor-pointer text-2xl" routerLink="/"></i>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="saveData()">
+  <div class="card flex flex-column flex-wrap p-fluid gap-3">
+    <h4 class="mb-3">Dados cadastrais</h4>
+
+    <div class="flex-auto">
+      <label for="cpf">Crypto Name</label>
+      <input type="text" pInputText formControlName="cryptoName" class="mt-2" />
+    </div>
+
+    <div class="flex-auto">
+      <label for="nome">Crypto Symbol</label>
+      <input
+        type="text"
+        pInputText
+        formControlName="cryptoSymbol"
+        class="mt-2"
+      />
+    </div>
+
+    <div class="flex-auto">
+      <label for="dataNascimento">Total Crypto Holdings</label>
+      <input
+        type="number"
+        pInputText
+        formControlName="totalCryptoHoldings"
+        class="mt-2"
+      />
+    </div>
+
+    <div
+      class="flex flex-column justify-content-center gap-3 p-fluid w-12 mt-2 sm:flex-row sm:justify-content-start sm:w-3"
+    >
+      <p-button
+        label="Cancelar"
+        [outlined]="true"
+        severity="secondary"
+      ></p-button>
+
+      <p-button label="Salvar" [raised]="true" severity="secondary"></p-button>
+    </div>
+  </div>
+</form>
