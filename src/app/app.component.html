@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+<div class="flex flex-column min-h-screen">
+  <app-navbar />
+
+  <div class="flex-grow m-4 pb-3">
+    <router-outlet />
+  </div>
+
+  <app-footer class="mt-auto" />
+</div>

@@ -1,0 +1,8 @@
+<p-sidebar [(visible)]="sidebarVisible" position="right" styleClass="w-20rem">
+  <p-menu [model]="items" styleClass="w-17rem"></p-menu>
+</p-sidebar>
+<p-button
+  (click)="toogleSidebar()"
+  size="large"
+  icon="pi pi-align-justify"
+  styleClass="bg-transparent border-none"></p-button>
