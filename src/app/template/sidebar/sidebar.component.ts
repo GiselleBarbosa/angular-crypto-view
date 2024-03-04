@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ButtonModule } from 'primeng/button';
-import { SidebarModule } from 'primeng/sidebar';
-import { MenuModule } from 'primeng/menu';
 import { MenuItem } from 'primeng/api';
+import { ButtonModule } from 'primeng/button';
+import { MenuModule } from 'primeng/menu';
+import { SidebarModule } from 'primeng/sidebar';
 
 @Component({
   selector: 'app-sidebar',
@@ -22,18 +22,27 @@ export class SidebarComponent implements OnInit {
         label: 'Página inícial',
         icon: 'pi pi-home',
         routerLink: 'home',
+        command: () => this.toogleSidebar(),
       },
 
       {
-        label: 'Moedas registradas',
+        label: 'Criptomoedas salvas',
         icon: 'pi pi-bitcoin',
-        routerLink: 'home',
+        routerLink: 'listar-criptomoedas',
+        command: () => this.toogleSidebar(),
       },
 
+      {
+        label: 'Cadastrar criptomoedas',
+        icon: 'pi pi-plus',
+        routerLink: 'cadastrar-criptomoeda',
+        command: () => this.toogleSidebar(),
+      },
       {
         label: 'Acompanhe o mercado',
         icon: 'pi pi-chart-bar',
         routerLink: 'home',
+        command: () => this.toogleSidebar(),
       },
     ];
   }
