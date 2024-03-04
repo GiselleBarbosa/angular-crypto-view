@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputFormComponent } from './input-form.component';
+import { AddCryptoComponent } from './add-crypto.component';
 
-describe('InputFormComponent', () => {
-  let component: InputFormComponent;
-  let fixture: ComponentFixture<InputFormComponent>;
+describe('AddCryptoComponent', () => {
+  let component: AddCryptoComponent;
+  let fixture: ComponentFixture<AddCryptoComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [InputFormComponent]
+      imports: [AddCryptoComponent]
     });
-    fixture = TestBed.createComponent(InputFormComponent);
+    fixture = TestBed.createComponent(AddCryptoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

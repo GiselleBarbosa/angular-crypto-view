@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
+import { AddCryptoComponent } from './components/add-crypto/add-crypto.component';
 
 export const homeRoute: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    title: 'Página inicial',
+    component: AddCryptoComponent,
+    title: 'Adicionar criptomoeda',
   },
 ];

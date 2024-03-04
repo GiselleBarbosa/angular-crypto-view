@@ -9,26 +9,34 @@
     <h4 class="mb-3">Preencha as informações da criptomoeda:</h4>
 
     <div class="flex-auto">
-      <label for="cpf">Crypto Name</label>
-      <input type="text" pInputText formControlName="cryptoName" class="mt-2" />
-    </div>
-
-    <div class="flex-auto">
-      <label for="nome">Crypto Symbol</label>
+      <label for="cpf">Nome</label>
       <input
         type="text"
         pInputText
-        formControlName="cryptoSymbol"
+        formControlName="criptoNome"
+        placeholder="Digite o nome da criptomoeda"
         class="mt-2"
       />
     </div>
 
     <div class="flex-auto">
-      <label for="dataNascimento">Total Crypto Holdings</label>
+      <label for="nome">Simbolo</label>
+      <input
+        type="text"
+        pInputText
+        formControlName="criptoSimbolo"
+        placeholder="Digite o simbolo da criptomoeda. Ex: BTC, ETH, etc"
+        class="mt-2"
+      />
+    </div>
+
+    <div class="flex-auto">
+      <label for="dataNascimento">Total de criptomoedas:</label>
       <input
         type="number"
         pInputText
-        formControlName="totalCryptoHoldings"
+        formControlName="totalCripto"
+        placeholder="Digite o total de criptomoedas que você possuí"
         class="mt-2"
       />
     </div>

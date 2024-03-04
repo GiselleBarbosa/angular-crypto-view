@@ -6,7 +6,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
-  selector: 'app-input-form',
+  selector: 'app-add-crypto',
   standalone: true,
   imports: [
     CommonModule,
@@ -17,10 +17,10 @@ import { InputTextModule } from 'primeng/inputtext';
     RouterLink,
     CurrencyPipe,
   ],
-  templateUrl: './input-form.component.html',
-  styleUrls: ['./input-form.component.scss'],
+  templateUrl: './add-crypto.component.html',
+  styleUrls: ['./add-crypto.component.scss'],
 })
-export class InputFormComponent implements OnInit {
+export class AddCryptoComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
 
   public form!: FormGroup;
@@ -31,9 +31,9 @@ export class InputFormComponent implements OnInit {
 
   public formInitialize(): void {
     this.form = this.formBuilder.group({
-      cryptoName: [null],
-      cryptoSymbol: [null],
-      totalCryptoHoldings: [null],
+      criptoNome: [null],
+      criptoSimbolo: [null],
+      totalCripto: [null],
     });
   }
 
