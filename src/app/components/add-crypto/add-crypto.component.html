@@ -1,7 +1,3 @@
-<div class="flex justify-content-between align-items-center mb-3">
-  <h4>Adicionar criptomoedas</h4>
-</div>
-
 <form [formGroup]="form" (ngSubmit)="saveData()">
   <div class="card flex flex-column flex-wrap p-fluid gap-3">
     <h5 class="mb-3">Preencha as informações da criptomoeda:</h5>
@@ -11,7 +7,7 @@
       <input
         type="text"
         pInputText
-        formControlName="criptoNome"
+        formControlName="ativo"
         placeholder="Digite o nome da criptomoeda"
         class="mt-2"
       />
@@ -22,7 +18,7 @@
       <input
         type="text"
         pInputText
-        formControlName="criptoSimbolo"
+        formControlName="simbolo"
         placeholder="Digite o simbolo da criptomoeda. Ex: BTC, ETH, etc"
         class="mt-2"
       />

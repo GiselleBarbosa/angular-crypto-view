@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { first } from 'rxjs';
@@ -29,7 +29,8 @@ import { CryptoService } from 'src/app/core/services/crypto.service';
   styleUrls: ['./add-crypto.component.scss'],
 })
 export class AddCryptoComponent implements OnInit {
-  public cryptoService = inject(CryptoService);
+  private cryptoService = inject(CryptoService);
+  private router = inject(Router);
 
   private formBuilder = inject(FormBuilder);
 
@@ -41,8 +42,8 @@ export class AddCryptoComponent implements OnInit {
 
   public formInitialize(): void {
     this.form = this.formBuilder.group({
-      criptoNome: [null, Validators.required],
-      criptoSimbolo: [
+      ativo: [null, Validators.required],
+      simbolo: [
         null,
         Validators.compose([
           Validators.required,
@@ -58,11 +59,10 @@ export class AddCryptoComponent implements OnInit {
     const dadosDoFormulario = this.form.getRawValue();
 
     if (this.form.valid) {
-      this.cryptoService
-        .salvarCriptomoeda(dadosDoFormulario)
-        .pipe(first())
-        .subscribe();
+      this.cryptoService.saveCrypto(dadosDoFormulario);
+
       alert('Criptomoeda cadastrada com sucesso!');
+      this.router.navigate(['/listar-criptomoedas']);
     } else {
       alert('Houve um erro');
     }

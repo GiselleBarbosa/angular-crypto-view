@@ -1,22 +1,20 @@
-<div class="p-d-flex p-jc-between p-ai-center mb-3">
-  <h4>Lista de criptomoedas cadastradas</h4>
-</div>
-
-<ng-container *ngIf="crypto$ | async as criptomoedas">
+<p-card styleClass="w-auto">
   <p-table [value]="criptomoedas" [scrollable]="true" scrollHeight="300px">
     <ng-template pTemplate="header">
       <tr>
-        <th>Nome</th>
-        <th>Símbolo</th>
-        <th>Total</th>
+        <th *ngFor="let item of tableTitles">{{ item }}</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-cripto>
       <tr>
-        <td>{{ cripto.criptoNome }}</td>
-        <td>{{ cripto.criptoSimbolo }}</td>
+        <td>{{ cripto.ativo }}</td>
+        <td>{{ cripto.simbolo | uppercase }}</td>
+        <td>{{ cripto.quantidade }}</td>
+        <td>{{ cripto.valorPago }}</td>
         <td>{{ cripto.totalCripto }}</td>
+        <td>{{ cripto.dataCompra }}</td>
+        <td>{{ bitcoinCurrent }}</td>
       </tr>
     </ng-template>
   </p-table>
-</ng-container>
+</p-card>

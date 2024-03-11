@@ -1,8 +1,14 @@
 <div class="flex flex-column min-h-screen">
   <app-navbar />
 
-  <div class="flex-grow m-4 pb-3">
-    <router-outlet />
+  <div class="flex flex-column gap-4 m-4 pb-3 lg:flex-row">
+    <div>
+      <app-overlay-menu />
+    </div>
+
+    <div>
+      <router-outlet />
+    </div>
   </div>
 
   <app-footer class="mt-auto" />

@@ -4,12 +4,19 @@ import { PrimeNGConfig } from 'primeng/api';
 import { NavbarComponent } from './template/navbar/navbar.component';
 import { CardModule } from 'primeng/card';
 import { FooterComponent } from './template/footer/footer.component';
+import { OverlayMenuComponent } from './template/overlay-menu/overlay-menu.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, CardModule, FooterComponent],
+  imports: [
+    RouterOutlet,
+    NavbarComponent,
+    CardModule,
+    FooterComponent,
+    OverlayMenuComponent,
+  ],
 })
 export class AppComponent implements OnInit {
   public primengConfig = inject(PrimeNGConfig);

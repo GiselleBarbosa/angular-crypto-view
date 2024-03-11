@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
-import { MenuModule } from 'primeng/menu';
 import { SidebarModule } from 'primeng/sidebar';
+import { NavigationMenuComponent } from '../navigation-menu/navigation-menu.component';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
   standalone: true,
-  imports: [SidebarModule, ButtonModule, MenuModule],
+  imports: [SidebarModule, ButtonModule, NavigationMenuComponent],
 })
 export class SidebarComponent implements OnInit {
   public sidebarVisible = false;
@@ -26,14 +26,14 @@ export class SidebarComponent implements OnInit {
       },
 
       {
-        label: 'Lista de criptomoedas',
+        label: 'Lista',
         icon: 'pi pi-bitcoin',
         routerLink: 'listar-criptomoedas',
         command: () => this.toogleSidebar(),
       },
 
       {
-        label: 'Cadastrar criptomoedas',
+        label: 'Adicionar nova',
         icon: 'pi pi-plus',
         routerLink: 'cadastrar-criptomoeda',
         command: () => this.toogleSidebar(),
