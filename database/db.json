@@ -17,6 +17,15 @@
       "valorPago": 1500,
       "valorAtual": 80000,
       "dataCompra": "2024-03-11"
+    },
+    {
+      "ativo": "Stellar Coin",
+      "simbolo": "XLM",
+      "quantidade": 1100000,
+      "valorPago": 100,
+      "valorAtual": 0.6,
+      "dataCompra": "2023-12-07",
+      "id": "da59"
     }
   ]
 }

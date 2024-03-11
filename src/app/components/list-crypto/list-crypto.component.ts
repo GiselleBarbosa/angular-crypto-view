@@ -50,11 +50,11 @@ export class ListCryptoComponent implements OnInit, OnDestroy {
     this.unsubscription = this.cryptoService.listarCriptomoedas().subscribe();
   }
 
-  public updateCrypto(index: number): void {
+  public updateCrypto(index: string | null): void {
     this.router.navigate(['editar-criptomoedas/' + index]);
   }
 
-  public deleteCrypto(index: number): void {
+  public deleteCrypto(index: string | null): void {
     this.unsubscription = this.cryptoService.deleteCrypto(index).subscribe();
   }
 

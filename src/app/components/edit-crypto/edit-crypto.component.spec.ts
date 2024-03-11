@@ -8,7 +8,7 @@ describe('EditCryptoComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [EditCryptoComponent]
+      imports: [EditCryptoComponent],
     });
     fixture = TestBed.createComponent(EditCryptoComponent);
     component = fixture.componentInstance;
