@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Criptomoedas } from '../interfaces/criptomoedas';
@@ -14,6 +14,9 @@ export class CryptoService {
   private cryptoSubject = new BehaviorSubject<Criptomoedas[]>([]);
   public readonly crypto$ = this.cryptoSubject.asObservable();
 
+  private selectedCryptoSubject = new Subject<Criptomoedas>();
+  public readonly selectedCrypto$ = this.selectedCryptoSubject.asObservable();
+
   constructor(private http: HttpClient) {}
 
   public listarCriptomoedas(): Observable<Criptomoedas[]> {
@@ -26,6 +29,15 @@ export class CryptoService {
     );
   }
 
+  public listById(id: string | null): Observable<Criptomoedas> {
+    return this.http.get<Criptomoedas>(`${this.apiUrl}/${id}`).pipe(
+      tap(cripto => this.selectedCryptoSubject.next(cripto)),
+      catchError(error => {
+        console.error('Erro ao lista a criptomoeda', error);
+        throw error;
+      })
+    );
+  }
   public saveCrypto(cripto: Criptomoedas): Observable<Criptomoedas> {
     return this.http.post<Criptomoedas>(this.apiUrl, cripto).pipe(
       tap(newCrypto => {
@@ -39,7 +51,7 @@ export class CryptoService {
     );
   }
 
-  public deleteCrypto(id: number): Observable<void> {
+  public deleteCrypto(id: string | null): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`).pipe(
       tap(() => {
         const updatedList = this.cryptoSubject
@@ -54,23 +66,24 @@ export class CryptoService {
     );
   }
 
-  public updateCrypto(updatedCrypto: Criptomoedas): Observable<Criptomoedas> {
-    return this.http
-      .put<Criptomoedas>(`${this.apiUrl}/${updatedCrypto.id}`, updatedCrypto)
-      .pipe(
-        tap(() => {
-          const updatedList = this.cryptoSubject.getValue().map(crypto => {
-            if (crypto.id === updatedCrypto.id) {
-              return updatedCrypto;
-            }
-            return crypto;
-          });
-          this.cryptoSubject.next(updatedList);
-        }),
-        catchError(error => {
-          console.error('Erro ao atualizar criptomoeda', error);
-          throw error;
-        })
-      );
+  public updateCrypto(
+    id: string | null,
+    updatedCrypto: Criptomoedas
+  ): Observable<Criptomoedas> {
+    return this.http.put<Criptomoedas>(`${this.apiUrl}/${id}`, updatedCrypto).pipe(
+      tap(() => {
+        const updatedList = this.cryptoSubject.getValue().map(crypto => {
+          if (crypto.id === id) {
+            return { ...crypto, ...updatedCrypto };
+          }
+          return crypto;
+        });
+        this.cryptoSubject.next(updatedList);
+      }),
+      catchError(error => {
+        console.error('Erro ao atualizar criptomoeda', error);
+        throw error;
+      })
+    );
   }
 }

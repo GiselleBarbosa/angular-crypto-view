@@ -1,5 +1,5 @@
 export interface Criptomoedas {
-  id: number;
+  id: string | null;
   ativo: string;
   simbolo: string;
   quantidade: number;

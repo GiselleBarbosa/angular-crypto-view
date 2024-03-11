@@ -1,10 +1,11 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router, RouterLink } from '@angular/router';
 import { CryptoService } from 'src/app/core/services/crypto.service';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-edit-crypto',
@@ -21,16 +22,41 @@ import { InputTextModule } from 'primeng/inputtext';
     ReactiveFormsModule,
   ],
 })
-export class EditCryptoComponent implements OnInit {
+export class EditCryptoComponent implements OnInit, OnDestroy {
   private cryptoService = inject(CryptoService);
   private router = inject(Router);
+  private route = inject(ActivatedRoute);
+  private subscription!: Subscription;
 
+  private id!: string | null;
   private formBuilder = inject(FormBuilder);
 
   public form!: FormGroup;
 
   public ngOnInit(): void {
     this.formInitialize();
+    this.getIdByRoute();
+    this.fillDataForm();
+  }
+
+  public getIdByRoute(): void {
+    this.subscription = this.route.paramMap.subscribe((params: ParamMap) => {
+      this.id = params.get('id');
+      console.log(this.id);
+    });
+  }
+
+  public fillDataForm(): void {
+    this.cryptoService.listById(this.id).subscribe(criptomoeda => {
+      this.form.patchValue({
+        ativo: criptomoeda.ativo,
+        simbolo: criptomoeda.simbolo,
+        quantidade: criptomoeda.quantidade,
+        valorPago: criptomoeda.valorPago,
+        valorAtual: criptomoeda.valorAtual,
+        dataCompra: criptomoeda.dataCompra,
+      });
+    });
   }
 
   public formInitialize(): void {
@@ -55,11 +81,15 @@ export class EditCryptoComponent implements OnInit {
     const dadosDoFormulario = this.form.getRawValue();
 
     if (this.form.valid) {
-      this.cryptoService.saveCrypto(dadosDoFormulario).subscribe();
-      alert('Criptomoeda cadastrada com sucesso!');
+      this.cryptoService.updateCrypto(this.id, dadosDoFormulario).subscribe();
+      alert('Criptomoeda atualizada com sucesso!');
       this.router.navigate(['/listar-criptomoedas']);
     } else {
       alert('Houve um erro');
     }
+  }
+
+  public ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
