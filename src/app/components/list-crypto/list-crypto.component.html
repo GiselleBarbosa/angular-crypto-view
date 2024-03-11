@@ -18,7 +18,8 @@
           <td>{{ cripto.valorPago | currency : 'BRL' }}</td>
           <td>{{ cripto.valorAtual | currency : 'BRL' }}</td>
           <td>{{ cripto.dataCompra }}</td>
-          <td>{{ cripto.totalCripto }}</td>
+          <td>{{ cripto.valorAtual * cripto.quantidade | currency : 'BRL' }}</td>
+
           <td>
             <div class="flex">
               <p-button
@@ -37,5 +38,12 @@
           </td>
         </tr>
       </ng-template>
-    </p-table> </p-card
-></ng-container>
+      <ng-template pTemplate="summary" styleClass="w-100">
+        <div class="flex align-items-center justify-content-between">
+          <p>Total em criptomoedas:</p>
+          <p>{{ totalValue$ | async | currency : 'BRL' }}</p>
+        </div>
+      </ng-template>
+    </p-table>
+  </p-card></ng-container
+>
