@@ -1,11 +1,11 @@
-<p-card styleClass="w-auto">
-  <p-table [value]="criptomoedas" [scrollable]="true" scrollHeight="300px">
+<p-card>
+  <p-table [value]="criptomoedas" [scrollable]="true" styleClass="w-auto">
     <ng-template pTemplate="header">
       <tr>
         <th *ngFor="let item of tableTitles">{{ item }}</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-cripto>
+    <ng-template pTemplate="body" let-cripto let-i="index">
       <tr>
         <td>{{ cripto.ativo }}</td>
         <td>{{ cripto.simbolo | uppercase }}</td>
@@ -14,6 +14,23 @@
         <td>{{ cripto.valorAtual | currency : "BRL" }}</td>
         <td>{{ cripto.dataCompra }}</td>
         <td>{{ cripto.totalCripto }}</td>
+        <td>
+          <div class="flex">
+            <p-button
+              icon="pi pi-pencil"
+              [rounded]="true"
+              [text]="true"
+              severity="secondary"
+            ></p-button>
+            <p-button
+              (click)="deleteCrypto(i)"
+              icon="pi pi-times"
+              [rounded]="true"
+              [text]="true"
+              severity="danger"
+            ></p-button>
+          </div>
+        </td>
       </tr>
     </ng-template>
   </p-table>
