@@ -1,4 +1,5 @@
-export interface Crypto {
+export interface Criptomoedas {
+  id: number;
   ativo: string;
   simbolo: string;
   quantidade: number;

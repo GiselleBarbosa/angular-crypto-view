@@ -1,56 +1,76 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Crypto } from '../interfaces/Crypto.interface';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+import { Criptomoedas } from '../interfaces/criptomoedas';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CryptoService {
-  private readonly STORAGE_KEY = 'cryptoList';
-  private cryptoList: Crypto[] = [];
+  private apiUrl = environment.apiUrl;
 
-  private cryptoSubject = new BehaviorSubject<Crypto[]>([]);
+  private cryptoSubject = new BehaviorSubject<Criptomoedas[]>([]);
   public readonly crypto$ = this.cryptoSubject.asObservable();
 
-  constructor() {
-    this.loadFromLocalStorage();
+  constructor(private http: HttpClient) {}
+
+  public listarCriptomoedas(): Observable<Criptomoedas[]> {
+    return this.http.get<Criptomoedas[]>(this.apiUrl).pipe(
+      tap(criptoList => this.cryptoSubject.next(criptoList)),
+      catchError(error => {
+        console.error('Erro ao listar criptomoedas', error);
+        throw error;
+      })
+    );
   }
 
-  private loadFromLocalStorage(): void {
-    const storedCryptoList = localStorage.getItem(this.STORAGE_KEY);
-    if (storedCryptoList) {
-      this.cryptoList = JSON.parse(storedCryptoList);
-      this.cryptoSubject.next(this.cryptoList);
-    }
+  public saveCrypto(cripto: Criptomoedas): Observable<Criptomoedas> {
+    return this.http.post<Criptomoedas>(this.apiUrl, cripto).pipe(
+      tap(newCrypto => {
+        const currentList = this.cryptoSubject.getValue();
+        this.cryptoSubject.next([...currentList, newCrypto]);
+      }),
+      catchError(error => {
+        console.error('Erro ao salvar criptomoeda', error);
+        throw error;
+      })
+    );
   }
 
-  private saveToLocalStorage(): void {
-    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.cryptoList));
+  public deleteCrypto(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`).pipe(
+      tap(() => {
+        const updatedList = this.cryptoSubject
+          .getValue()
+          .filter(crypto => crypto.id !== id);
+        this.cryptoSubject.next(updatedList);
+      }),
+      catchError(error => {
+        console.error('Erro ao excluir criptomoeda', error);
+        throw error;
+      })
+    );
   }
 
-  public saveCrypto(cripto: Crypto): void {
-    this.cryptoList.push(cripto);
-    this.saveToLocalStorage();
-    this.cryptoSubject.next(this.cryptoList);
-  }
-
-  public listarCriptomoedas(): void {
-    this.loadFromLocalStorage();
-  }
-
-  public deleteCrypto(index: number): void {
-    if (index >= 0 && index < this.cryptoList.length) {
-      this.cryptoList.splice(index, 1);
-      this.saveToLocalStorage();
-      this.cryptoSubject.next(this.cryptoList);
-    }
-  }
-
-  public updateCrypto(index: number, updatedCrypto: Crypto): void {
-    if (index >= 0 && index < this.cryptoList.length) {
-      this.cryptoList[index] = updatedCrypto;
-      this.saveToLocalStorage();
-      this.cryptoSubject.next(this.cryptoList);
-    }
+  public updateCrypto(updatedCrypto: Criptomoedas): Observable<Criptomoedas> {
+    return this.http
+      .put<Criptomoedas>(`${this.apiUrl}/${updatedCrypto.id}`, updatedCrypto)
+      .pipe(
+        tap(() => {
+          const updatedList = this.cryptoSubject.getValue().map(crypto => {
+            if (crypto.id === updatedCrypto.id) {
+              return updatedCrypto;
+            }
+            return crypto;
+          });
+          this.cryptoSubject.next(updatedList);
+        }),
+        catchError(error => {
+          console.error('Erro ao atualizar criptomoeda', error);
+          throw error;
+        })
+      );
   }
 }
