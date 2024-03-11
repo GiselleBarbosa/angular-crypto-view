@@ -3,7 +3,7 @@
     <h5 class="mb-3">Preencha as informações da criptomoeda:</h5>
 
     <div class="flex-auto">
-      <label for="cpf">Nome</label>
+      <label for="ativo">Ativo</label>
       <input
         type="text"
         pInputText
@@ -14,7 +14,7 @@
     </div>
 
     <div class="flex-auto">
-      <label for="nome">Simbolo</label>
+      <label for="simbolo">Simbolo</label>
       <input
         type="text"
         pInputText
@@ -25,14 +25,41 @@
     </div>
 
     <div class="flex-auto">
-      <label for="dataNascimento">Total de criptomoedas:</label>
+      <label for="quantidade">Quantidade comprada</label>
       <input
         type="number"
         pInputText
-        formControlName="totalCripto"
-        placeholder="Digite o total de criptomoedas que você possuí"
+        formControlName="quantidade"
+        placeholder="Digite o total de criptomoedas que você comprou"
         class="mt-2"
       />
+    </div>
+
+    <div class="flex-auto">
+      <label for="valorPago">Valor pago</label>
+      <input
+        type="number"
+        pInputText
+        formControlName="valorPago"
+        placeholder="Digite o valor pago na compra"
+        class="mt-2"
+      />
+    </div>
+
+    <div class="flex-auto">
+      <label for="valorAtual">Valor atual</label>
+      <input
+        type="number"
+        pInputText
+        formControlName="valorAtual"
+        placeholder="Digite o valor atual do ativo"
+        class="mt-2"
+      />
+    </div>
+
+    <div class="flex-auto">
+      <label for="valorAtual">Data da compra</label>
+      <input type="date" pInputText formControlName="dataCompra" class="mt-2" />
     </div>
 
     <div

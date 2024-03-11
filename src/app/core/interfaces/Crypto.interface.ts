@@ -3,7 +3,8 @@ export interface Crypto {
   simbolo: string;
   quantidade: number;
   valorPago: number;
-  BRL: number;
-  totalCripto: number;
+  valorAtual: number;
   dataCompra: Date;
+  totalCripto: number;
 }
+    

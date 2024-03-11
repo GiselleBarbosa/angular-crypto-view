@@ -10,10 +10,10 @@
         <td>{{ cripto.ativo }}</td>
         <td>{{ cripto.simbolo | uppercase }}</td>
         <td>{{ cripto.quantidade }}</td>
-        <td>{{ cripto.valorPago }}</td>
-        <td>{{ cripto.totalCripto }}</td>
+        <td>{{ cripto.valorPago | currency : "BRL" }}</td>
+        <td>{{ cripto.valorAtual | currency : "BRL" }}</td>
         <td>{{ cripto.dataCompra }}</td>
-        <td>{{ bitcoinCurrent }}</td>
+        <td>{{ cripto.totalCripto }}</td>
       </tr>
     </ng-template>
   </p-table>

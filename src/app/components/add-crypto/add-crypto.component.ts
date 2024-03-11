@@ -9,7 +9,6 @@ import {
 import { Router, RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { first } from 'rxjs';
 import { CryptoService } from 'src/app/core/services/crypto.service';
 
 @Component({
@@ -22,7 +21,6 @@ import { CryptoService } from 'src/app/core/services/crypto.service';
     AsyncPipe,
     ReactiveFormsModule,
     RouterLink,
-    CurrencyPipe,
     ReactiveFormsModule,
   ],
   templateUrl: './add-crypto.component.html',
@@ -51,12 +49,22 @@ export class AddCryptoComponent implements OnInit {
           Validators.maxLength(3),
         ]),
       ],
-      totalCripto: [null, Validators.required],
+      quantidade: [null, Validators.required],
+      valorPago: [null, Validators.required],
+      valorAtual: [null, Validators.required],
+      dataCompra: [null, Validators.required],
     });
   }
 
   public saveData(): void {
+    Object.keys(this.form.controls).forEach((controlName) => {
+      const control = this.form.get(controlName);
+      console.log(`Campo: ${controlName}, válido: ${control?.valid}`);
+    });
+
     const dadosDoFormulario = this.form.getRawValue();
+
+    console.log(dadosDoFormulario);
 
     if (this.form.valid) {
       this.cryptoService.saveCrypto(dadosDoFormulario);
