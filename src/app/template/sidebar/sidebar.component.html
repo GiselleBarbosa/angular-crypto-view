@@ -1,13 +1,8 @@
-<p-sidebar
-  [(visible)]="sidebarVisible"
-  position="right"
-  styleClass="w-19rem bg-primary-400"
->
+<p-sidebar [(visible)]="sidebarVisible" position="right" styleClass="w-19rem text-700">
   <app-navigation-menu (command)="toogleSidebar()" />
 </p-sidebar>
 <p-button
   (click)="toogleSidebar()"
   size="large"
   icon="pi pi-align-justify"
-  styleClass="bg-transparent border-none"
-></p-button>
+  styleClass="bg-transparent border-none text-700"></p-button>

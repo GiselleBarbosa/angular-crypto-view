@@ -1,11 +1,6 @@
 import { AsyncPipe, CommonModule, CurrencyPipe } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -57,7 +52,7 @@ export class AddCryptoComponent implements OnInit {
   }
 
   public saveData(): void {
-    Object.keys(this.form.controls).forEach((controlName) => {
+    Object.keys(this.form.controls).forEach(controlName => {
       const control = this.form.get(controlName);
       console.log(`Campo: ${controlName}, válido: ${control?.valid}`);
     });

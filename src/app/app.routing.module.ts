@@ -10,17 +10,16 @@ export const routes: Routes = [
 
   {
     path: 'home',
-    loadChildren: () => import('./routes').then((rotas) => rotas.homeRoute),
+    loadChildren: () => import('./routes').then(rotas => rotas.homeRoute),
   },
 
   {
     path: '',
-    loadChildren: () => import('./routes').then((rotas) => rotas.criptoRoutes),
+    loadChildren: () => import('./routes').then(rotas => rotas.criptoRoutes),
   },
   {
     path: '',
-    loadChildren: () =>
-      import('./routes').then((rotas) => rotas.newsletterRoutes),
+    loadChildren: () => import('./routes').then(rotas => rotas.newsletterRoutes),
   },
 
   {

@@ -10,8 +10,8 @@
         <td>{{ cripto.ativo }}</td>
         <td>{{ cripto.simbolo | uppercase }}</td>
         <td>{{ cripto.quantidade }}</td>
-        <td>{{ cripto.valorPago | currency : "BRL" }}</td>
-        <td>{{ cripto.valorAtual | currency : "BRL" }}</td>
+        <td>{{ cripto.valorPago | currency : 'BRL' }}</td>
+        <td>{{ cripto.valorAtual | currency : 'BRL' }}</td>
         <td>{{ cripto.dataCompra }}</td>
         <td>{{ cripto.totalCripto }}</td>
         <td>
@@ -20,15 +20,13 @@
               icon="pi pi-pencil"
               [rounded]="true"
               [text]="true"
-              severity="secondary"
-            ></p-button>
+              severity="secondary"></p-button>
             <p-button
               (click)="deleteCrypto(i)"
               icon="pi pi-times"
               [rounded]="true"
               [text]="true"
-              severity="danger"
-            ></p-button>
+              severity="danger"></p-button>
           </div>
         </td>
       </tr>

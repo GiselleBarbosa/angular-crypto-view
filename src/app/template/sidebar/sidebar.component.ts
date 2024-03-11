@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
@@ -11,12 +11,10 @@ import { NavigationMenuComponent } from '../../shared/navigation-menu/navigation
   standalone: true,
   imports: [SidebarModule, ButtonModule, NavigationMenuComponent],
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent {
   public sidebarVisible = false;
 
   public items: MenuItem[] | undefined;
-
-  public ngOnInit(): void {}
 
   public toogleSidebar(): void {
     this.sidebarVisible = !this.sidebarVisible;

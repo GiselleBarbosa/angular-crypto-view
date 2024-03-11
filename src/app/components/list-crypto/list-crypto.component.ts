@@ -1,9 +1,4 @@
-import {
-  CommonModule,
-  CurrencyPipe,
-  NgFor,
-  UpperCasePipe,
-} from '@angular/common';
+import { CommonModule, CurrencyPipe, NgFor, UpperCasePipe } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
@@ -44,7 +39,7 @@ export class ListCryptoComponent implements OnInit {
   public criptomoedas!: Crypto[];
 
   ngOnInit(): void {
-    this.cryptoService.crypto$.subscribe((criptomoedas) => {
+    this.cryptoService.crypto$.subscribe(criptomoedas => {
       this.criptomoedas = criptomoedas;
     });
   }

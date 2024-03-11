@@ -6,9 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CheckScreenSizeService {
-  private isMobileSubject = new BehaviorSubject<boolean>(
-    window.innerWidth < 960
-  );
+  private isMobileSubject = new BehaviorSubject<boolean>(window.innerWidth < 960);
   public isMobile$ = this.isMobileSubject.asObservable();
 
   constructor() {
