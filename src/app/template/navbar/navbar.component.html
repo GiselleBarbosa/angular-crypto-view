@@ -1,0 +1,19 @@
+<p-toolbar
+  styleClass="border-noround border-none bg-primary shadow-2"
+  [style]="{
+    'background-image':
+      'linear-gradient(to right, var(--bg-primary-500), var(--bg-primary-800))'
+  }"
+>
+  <div class="flex justify-content-between w-full">
+    <p-button
+      routerLink="/"
+      icon="pi pi-bitcoin"
+      label="Crypto View"
+      severity="secondary"
+      styleClass="bg-transparent border-none"
+    ></p-button>
+
+    <app-sidebar />
+  </div>
+</p-toolbar>

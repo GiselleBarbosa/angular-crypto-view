@@ -1,0 +1,13 @@
+<p-sidebar
+  [(visible)]="sidebarVisible"
+  position="right"
+  styleClass="w-19rem bg-primary-400"
+>
+  <app-navigation-menu />
+</p-sidebar>
+<p-button
+  (click)="toogleSidebar()"
+  size="large"
+  icon="pi pi-align-justify"
+  styleClass="bg-transparent border-none"
+></p-button>
