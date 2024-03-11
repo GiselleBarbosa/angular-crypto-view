@@ -34,7 +34,7 @@ export class NavigationMenuComponent implements OnInit {
       {
         label: 'Acompanhe o mercado',
         icon: 'pi pi-chart-bar',
-        routerLink: 'home',
+        routerLink: 'novidades',
       },
     ];
   }

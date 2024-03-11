@@ -17,6 +17,11 @@ export const routes: Routes = [
     path: '',
     loadChildren: () => import('./routes').then((rotas) => rotas.criptoRoutes),
   },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./routes').then((rotas) => rotas.newsletterRoutes),
+  },
 
   {
     path: '**',

@@ -16,36 +16,7 @@ export class SidebarComponent implements OnInit {
 
   public items: MenuItem[] | undefined;
 
-  public ngOnInit(): void {
-    this.items = [
-      {
-        label: 'Página inícial',
-        icon: 'pi pi-home',
-        routerLink: 'home',
-        command: () => this.toogleSidebar(),
-      },
-
-      {
-        label: 'Lista',
-        icon: 'pi pi-bitcoin',
-        routerLink: 'listar-criptomoedas',
-        command: () => this.toogleSidebar(),
-      },
-
-      {
-        label: 'Adicionar nova',
-        icon: 'pi pi-plus',
-        routerLink: 'cadastrar-criptomoeda',
-        command: () => this.toogleSidebar(),
-      },
-      {
-        label: 'Acompanhe o mercado',
-        icon: 'pi pi-chart-bar',
-        routerLink: 'home',
-        command: () => this.toogleSidebar(),
-      },
-    ];
-  }
+  public ngOnInit(): void {}
 
   public toogleSidebar(): void {
     this.sidebarVisible = !this.sidebarVisible;
