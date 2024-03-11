@@ -1,7 +1,22 @@
 {
-  "mock": [
+  "criptomoedas": [
     {
-      "nome": "bitcoin"
+      "id": "1",
+      "ativo": "Bitcoin",
+      "simbolo": "BTC",
+      "quantidade": "00000001234",
+      "valorPago": "650",
+      "valorAtual": "34000",
+      "dataCompra": "2024-03-10"
+    },
+    {
+      "id": "21356",
+      "ativo": "Ethereum",
+      "simbolo": "ETH",
+      "quantidade": 53203,
+      "valorPago": 1500,
+      "valorAtual": 80000,
+      "dataCompra": "2024-03-11"
     }
   ]
 }

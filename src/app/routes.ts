@@ -3,6 +3,7 @@ import { AddCryptoComponent } from './components/add-crypto/add-crypto.component
 import { ListCryptoComponent } from './components/list-crypto/list-crypto.component';
 import { HomeComponent } from './components/home/home.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
+import { EditCryptoComponent } from './components/edit-crypto/edit-crypto.component';
 
 export const homeRoute: Routes = [
   {
@@ -23,6 +24,12 @@ export const criptoRoutes: Routes = [
     path: 'cadastrar-criptomoeda',
     component: AddCryptoComponent,
     title: 'Cadastrar criptomoedas',
+  },
+
+  {
+    path: 'editar-criptomoedas/:id',
+    component: EditCryptoComponent,
+    title: 'Editar criptomoedas',
   },
 ];
 

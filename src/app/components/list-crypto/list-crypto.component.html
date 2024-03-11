@@ -1,35 +1,41 @@
-<p-card>
-  <p-table [value]="criptomoedas" [scrollable]="true" styleClass="w-auto">
-    <ng-template pTemplate="header">
-      <tr>
-        <th *ngFor="let item of tableTitles">{{ item }}</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-cripto let-i="index">
-      <tr>
-        <td>{{ cripto.ativo }}</td>
-        <td>{{ cripto.simbolo | uppercase }}</td>
-        <td>{{ cripto.quantidade }}</td>
-        <td>{{ cripto.valorPago | currency : 'BRL' }}</td>
-        <td>{{ cripto.valorAtual | currency : 'BRL' }}</td>
-        <td>{{ cripto.dataCompra }}</td>
-        <td>{{ cripto.totalCripto }}</td>
-        <td>
-          <div class="flex">
-            <p-button
-              icon="pi pi-pencil"
-              [rounded]="true"
-              [text]="true"
-              severity="secondary"></p-button>
-            <p-button
-              (click)="deleteCrypto(i)"
-              icon="pi pi-times"
-              [rounded]="true"
-              [text]="true"
-              severity="danger"></p-button>
-          </div>
-        </td>
-      </tr>
-    </ng-template>
-  </p-table>
-</p-card>
+<ng-container *ngIf="crypto$ | async as criptomoedas"
+  ><p-card>
+    <p-table
+      [value]="criptomoedas"
+      [scrollable]="true"
+      styleClass="w-auto"
+      [tableStyle]="{ 'min-width': '60rem' }">
+      <ng-template pTemplate="header">
+        <tr>
+          <th *ngFor="let item of tableTitles">{{ item }}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-cripto let-i="index">
+        <tr>
+          <td>{{ cripto.ativo }}</td>
+          <td>{{ cripto.simbolo | uppercase }}</td>
+          <td>{{ cripto.quantidade }}</td>
+          <td>{{ cripto.valorPago | currency : 'BRL' }}</td>
+          <td>{{ cripto.valorAtual | currency : 'BRL' }}</td>
+          <td>{{ cripto.dataCompra }}</td>
+          <td>{{ cripto.totalCripto }}</td>
+          <td>
+            <div class="flex">
+              <p-button
+                (click)="updateCrypto(cripto.id)"
+                icon="pi pi-pencil"
+                [rounded]="true"
+                [text]="true"
+                severity="secondary"></p-button>
+              <p-button
+                (click)="deleteCrypto(cripto.id)"
+                icon="pi pi-times"
+                [rounded]="true"
+                [text]="true"
+                severity="danger"></p-button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table> </p-card
+></ng-container>
