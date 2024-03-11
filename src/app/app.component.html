@@ -2,7 +2,7 @@
   <app-navbar />
 
   <div class="flex flex-column gap-4 m-4 pb-3 lg:flex-row">
-    <div>
+    <div *ngIf="!isMobile">
       <app-overlay-menu />
     </div>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { MenuModule } from 'primeng/menu';
 
@@ -11,30 +11,35 @@ import { MenuModule } from 'primeng/menu';
 })
 export class NavigationMenuComponent implements OnInit {
   public items!: MenuItem[];
+  @Output() public command = new EventEmitter();
 
   public ngOnInit(): void {
     this.items = [
       {
-        label: 'Página inícial',
+        label: 'Início',
         icon: 'pi pi-home',
         routerLink: 'home',
+        command: () => this.command.emit(),
       },
 
       {
-        label: 'Lista',
+        label: 'Lista completa',
         icon: 'pi pi-bitcoin',
         routerLink: 'listar-criptomoedas',
+        command: () => this.command.emit(),
       },
 
       {
-        label: 'Adicionar nova',
+        label: 'Adicionar',
         icon: 'pi pi-plus',
         routerLink: 'cadastrar-criptomoeda',
+        command: () => this.command.emit(),
       },
       {
-        label: 'Acompanhe o mercado',
+        label: 'Mercado',
         icon: 'pi pi-chart-bar',
-        routerLink: 'home',
+        routerLink: 'novidades',
+        command: () => this.command.emit(),
       },
     ];
   }

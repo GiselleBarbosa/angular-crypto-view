@@ -7,4 +7,3 @@ export interface Crypto {
   dataCompra: Date;
   totalCripto: number;
 }
-    

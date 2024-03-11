@@ -7,8 +7,7 @@ import { Bitcoin } from '../interfaces/bitcoin.interface';
   providedIn: 'root',
 })
 export class BitcoinService {
-  private bitcoinApiUrl =
-    'https://economia.awesomeapi.com.br/json/last/BTC-BRL';
+  private bitcoinApiUrl = 'https://economia.awesomeapi.com.br/json/last/BTC-BRL';
 
   private http = inject(HttpClient);
 

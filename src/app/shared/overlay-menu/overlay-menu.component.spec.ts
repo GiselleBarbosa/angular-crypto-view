@@ -8,7 +8,7 @@ describe('OverlayMenuComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [OverlayMenuComponent]
+      imports: [OverlayMenuComponent],
     });
     fixture = TestBed.createComponent(OverlayMenuComponent);
     component = fixture.componentInstance;

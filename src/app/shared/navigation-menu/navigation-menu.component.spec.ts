@@ -8,7 +8,7 @@ describe('NavigationMenuComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [NavigationMenuComponent]
+      imports: [NavigationMenuComponent],
     });
     fixture = TestBed.createComponent(NavigationMenuComponent);
     component = fixture.componentInstance;
