@@ -3,7 +3,7 @@
   position="right"
   styleClass="w-19rem bg-primary-400"
 >
-  <app-navigation-menu />
+  <app-navigation-menu (command)="toogleSidebar()" />
 </p-sidebar>
 <p-button
   (click)="toogleSidebar()"

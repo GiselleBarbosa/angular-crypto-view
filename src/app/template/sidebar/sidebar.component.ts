@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
-import { NavigationMenuComponent } from '../navigation-menu/navigation-menu.component';
+import { NavigationMenuComponent } from '../../shared/navigation-menu/navigation-menu.component';
 
 @Component({
   selector: 'app-sidebar',
