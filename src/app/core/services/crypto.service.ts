@@ -17,11 +17,17 @@ export class CryptoService {
   private selectedCryptoSubject = new Subject<Criptomoedas>();
   public readonly selectedCrypto$ = this.selectedCryptoSubject.asObservable();
 
+  private totalValue = new BehaviorSubject<number>(0);
+  public readonly totalValue$ = this.totalValue.asObservable();
+
   constructor(private http: HttpClient) {}
 
   public listarCriptomoedas(): Observable<Criptomoedas[]> {
     return this.http.get<Criptomoedas[]>(this.apiUrl).pipe(
-      tap(criptoList => this.cryptoSubject.next(criptoList)),
+      tap(criptoList => {
+        this.cryptoSubject.next(criptoList), this.calculateTotalPrice();
+      }),
+
       catchError(error => {
         console.error('Erro ao listar criptomoedas', error);
         throw error;
@@ -43,6 +49,7 @@ export class CryptoService {
       tap(newCrypto => {
         const currentList = this.cryptoSubject.getValue();
         this.cryptoSubject.next([...currentList, newCrypto]);
+        this.calculateTotalPrice();
       }),
       catchError(error => {
         console.error('Erro ao salvar criptomoeda', error);
@@ -58,6 +65,7 @@ export class CryptoService {
           .getValue()
           .filter(crypto => crypto.id !== id);
         this.cryptoSubject.next(updatedList);
+        this.calculateTotalPrice();
       }),
       catchError(error => {
         console.error('Erro ao excluir criptomoeda', error);
@@ -79,11 +87,22 @@ export class CryptoService {
           return crypto;
         });
         this.cryptoSubject.next(updatedList);
+        this.calculateTotalPrice();
       }),
       catchError(error => {
         console.error('Erro ao atualizar criptomoeda', error);
         throw error;
       })
     );
+  }
+
+  public calculateTotalPrice(): void {
+    const totalCryptos = this.cryptoSubject.getValue();
+    const totalPrice = totalCryptos.reduce(
+      (total, item) => total + item.quantidade * item.valorAtual,
+      0
+    );
+
+    this.totalValue.next(totalPrice); // Atualiza o BehaviorSubject com o valor calculado
   }
 }

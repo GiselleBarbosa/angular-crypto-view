@@ -33,6 +33,7 @@ export class ListCryptoComponent implements OnInit, OnDestroy {
   private cryptoService = inject(CryptoService);
   private router = inject(Router);
   private unsubscription!: Subscription;
+  public totalValue$ = this.cryptoService.totalValue$;
 
   public tableTitles = [
     'Ativo',

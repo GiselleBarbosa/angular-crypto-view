@@ -6,5 +6,4 @@ export interface Criptomoedas {
   valorPago: number;
   valorAtual: number;
   dataCompra: Date;
-  totalCripto: number;
 }
