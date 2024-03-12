@@ -3,18 +3,18 @@
     {
       "ativo": "Bitcoin",
       "simbolo": "BTC",
-      "quantidade": 2,
-      "valorPago": 50,
-      "valorAtual": 20,
-      "dataCompra": "2024-03-10",
+      "quantidade": 0.00012,
+      "valorPago": 200,
+      "valorAtual": 360000,
+      "dataCompra": "2024-03-11",
       "id": "1"
     },
     {
-      "ativo": "teste",
-      "simbolo": "sdf",
+      "ativo": "Ethereum",
+      "simbolo": "ETH",
       "quantidade": 1,
-      "valorPago": 1,
-      "valorAtual": 1,
+      "valorPago": 17000,
+      "valorAtual": 17000,
       "dataCompra": "2024-03-11",
       "id": "c158"
     }
