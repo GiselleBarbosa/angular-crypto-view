@@ -13,10 +13,10 @@ Crypto View é uma aplicação para controle de criptomoedas, projetada para aju
 Para iniciar a aplicação, siga os passos abaixo:
 
 1. Construa a imagem Docker:
-´docker build -t angular-crypto-view .´ 
+`docker build -t angular-crypto-view .` 
 
 2. Execute a aplicação:
-´docker run -p 4200:4200 -p 3000:3000 angular-crypto-view´
+`docker run -p 4200:4200 -p 3000:3000 angular-crypto-view`
 
 Acesse a aplicação em [http://localhost:4200](http://localhost:4200) e comece a explorar as diferentes funcionalidades disponíveis!
 
