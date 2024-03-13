@@ -1,27 +1,24 @@
-# AngularCryptoView
+## Crypto View
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
+Crypto View é uma aplicação para controle de criptomoedas, projetada para ajudá-lo a centralizar suas criptos em um só lugar. Com base em um CRUD, você pode adicionar, editar, remover e atualizar criptomoedas, além de consultar a lista e visualizar o valor total das suas criptos.
 
-## Development server
+### Tecnologias Utilizadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular v16
+- JSON-Server (API Mock)
+- Docker
 
-## Code scaffolding
+### Instruções de Uso
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Para iniciar a aplicação, siga os passos abaixo:
 
-## Build
+1. Construa a imagem Docker:
+´docker build -t angular-crypto-view .´ 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. Execute a aplicação:
+´docker run -p 4200:4200 -p 3000:3000 angular-crypto-view´
 
-## Running unit tests
+Acesse a aplicação em [http://localhost:4200](http://localhost:4200) e comece a explorar as diferentes funcionalidades disponíveis!
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+Aproveite o Crypto View para gerenciar suas criptomoedas de forma eficiente e eficaz!
