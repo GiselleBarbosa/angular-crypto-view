@@ -10,6 +10,51 @@
       "id": "1"
     },
     {
+      "ativo": "Ripple",
+      "simbolo": "XRP",
+      "quantidade": 500,
+      "valorPago": 1000,
+      "valorAtual": 1.5,
+      "dataCompra": "2024-03-12",
+      "id": "d327"
+    },
+    {
+      "ativo": "Litecoin",
+      "simbolo": "LTC",
+      "quantidade": 5,
+      "valorPago": 5000,
+      "valorAtual": 200,
+      "dataCompra": "2024-03-13",
+      "id": "e482"
+    },
+    {
+      "ativo": "Cardano",
+      "simbolo": "ADA",
+      "quantidade": 2000,
+      "valorPago": 2500,
+      "valorAtual": 2.1,
+      "dataCompra": "2024-03-14",
+      "id": "f973"
+    },
+    {
+      "ativo": "Polkadot",
+      "simbolo": "DOT",
+      "quantidade": 100,
+      "valorPago": 3000,
+      "valorAtual": 25,
+      "dataCompra": "2024-03-15",
+      "id": "g741"
+    },
+    {
+      "ativo": "Chainlink",
+      "simbolo": "LINK",
+      "quantidade": 150,
+      "valorPago": 6000,
+      "valorAtual": 30,
+      "dataCompra": "2024-03-16",
+      "id": "h628"
+    },
+    {
       "ativo": "Ethereum",
       "simbolo": "ETH",
       "quantidade": 1,

@@ -20,26 +20,24 @@
           <td>{{ cripto.dataCompra }}</td>
           <td>{{ cripto.valorAtual * cripto.quantidade | currency : 'BRL' }}</td>
 
-          <td>
-            <div class="flex">
-              <p-button
-                (click)="updateCrypto(cripto.id)"
-                icon="pi pi-pencil"
-                [rounded]="true"
-                [text]="true"
-                severity="secondary"></p-button>
-              <p-button
-                (click)="deleteCrypto(cripto.id)"
-                icon="pi pi-times"
-                [rounded]="true"
-                [text]="true"
-                severity="danger"></p-button>
-            </div>
+          <td class="flex" class="p-0 m-0">
+            <p-button
+              (click)="updateCrypto(cripto.id)"
+              icon="pi pi-pencil"
+              [rounded]="true"
+              [text]="true"
+              severity="secondary"></p-button>
+            <p-button
+              (click)="deleteCrypto(cripto.id)"
+              icon="pi pi-times"
+              [rounded]="true"
+              [text]="true"
+              severity="danger"></p-button>
           </td>
         </tr>
       </ng-template>
       <ng-template pTemplate="summary" styleClass="w-100">
-        <div class="flex align-items-center justify-content-between">
+        <div class="flex justify-content-between h-1rem">
           <p>Total em criptomoedas:</p>
           <p>{{ totalValue$ | async | currency : 'BRL' }}</p>
         </div>

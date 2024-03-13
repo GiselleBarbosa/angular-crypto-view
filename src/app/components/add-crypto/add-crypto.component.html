@@ -1,60 +1,66 @@
 <form [formGroup]="form" (ngSubmit)="saveData()">
-  <div class="card flex flex-column flex-wrap p-fluid gap-3">
-    <h5 class="mb-3">Preencha as informações da criptomoeda:</h5>
+  <div class="card flex flex-column flex-wrap p-fluid">
+    <h5 class="mb-3 font-italic font-light">Preencha as informações da criptomoeda:</h5>
 
-    <div class="flex-auto">
-      <label for="ativo">Ativo</label>
-      <input
-        type="text"
-        pInputText
-        formControlName="ativo"
-        placeholder="Digite o nome da criptomoeda"
-        class="mt-2" />
+    <div class="flex flex-wrap">
+      <div class="col-12 lg:col-6">
+        <label class="font-semibold" for="ativo">Ativo</label>
+        <input
+          type="text"
+          pInputText
+          formControlName="ativo"
+          placeholder="Nome da criptomoeda"
+          class="mt-2" />
+      </div>
+
+      <div class="col-12 lg:col-6">
+        <label class="font-semibold" for="simbolo">Simbolo</label>
+        <input
+          type="text"
+          pInputText
+          formControlName="simbolo"
+          placeholder="Ex: BTC"
+          class="mt-2" />
+      </div>
     </div>
 
-    <div class="flex-auto">
-      <label for="simbolo">Simbolo</label>
-      <input
-        type="text"
-        pInputText
-        formControlName="simbolo"
-        placeholder="Digite o simbolo da criptomoeda. Ex: BTC, ETH, etc"
-        class="mt-2" />
+    <div class="flex flex-wrap">
+      <div class="col-12 lg:col-4">
+        <label class="font-semibold" for="quantidade">Quantidade comprada</label>
+        <input
+          type="text"
+          pInputText
+          formControlName="quantidade"
+          placeholder="00000000.12"
+          class="mt-2" />
+      </div>
+
+      <div class="col-12 lg:col-4">
+        <label class="font-semibold" for="valorPago">Valor pago</label>
+        <input
+          type="text"
+          pInputText
+          formControlName="valorPago"
+          placeholder="Digite o valor pago na compra"
+          class="mt-2" />
+      </div>
+
+      <div class="col-12 lg:col-4">
+        <label class="font-semibold" for="valorAtual">Valor atual</label>
+        <input
+          type="text"
+          pInputText
+          formControlName="valorAtual"
+          placeholder="Digite o valor atual do ativo"
+          class="mt-2" />
+      </div>
     </div>
 
-    <div class="flex-auto">
-      <label for="quantidade">Quantidade comprada</label>
-      <input
-        type="number"
-        pInputText
-        formControlName="quantidade"
-        placeholder="Digite o total de criptomoedas que você comprou"
-        class="mt-2" />
-    </div>
-
-    <div class="flex-auto">
-      <label for="valorPago">Valor pago</label>
-      <input
-        type="number"
-        pInputText
-        formControlName="valorPago"
-        placeholder="Digite o valor pago na compra"
-        class="mt-2" />
-    </div>
-
-    <div class="flex-auto">
-      <label for="valorAtual">Valor atual</label>
-      <input
-        type="number"
-        pInputText
-        formControlName="valorAtual"
-        placeholder="Digite o valor atual do ativo"
-        class="mt-2" />
-    </div>
-
-    <div class="flex-auto">
-      <label for="valorAtual">Data da compra</label>
-      <input type="date" pInputText formControlName="dataCompra" class="mt-2" />
+    <div class="flex flex-wrap">
+      <div class="col-12 lg:col-4">
+        <label class="font-semibold" for="dataCompra">Data da compra</label>
+        <input type="date" pInputText formControlName="dataCompra" class="mt-2" />
+      </div>
     </div>
 
     <div
