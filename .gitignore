@@ -17,11 +17,14 @@ yarn-error.log
 .classpath
 .c9/
 *.launch
+.launch.json
+.tasks.json
 .settings/
 *.sublime-workspace
 
 # Visual Studio Code
 .vscode/*
+./vscode
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json

@@ -9,7 +9,7 @@ export const homeRoute: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'Página Inícial',
+    title: 'Página Inicial',
   },
 ];
 
