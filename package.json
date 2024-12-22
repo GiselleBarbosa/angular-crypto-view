@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "ng serve --open",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "db": "npx json-server ./database/db.json",
     "lint": "npx eslint",
